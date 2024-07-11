@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Question2" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="883.3333333333334,948" sap2010:WorkflowViewState.IdRef="Question2_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System.Net.Mail" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Question2" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="887,1269" sap2010:WorkflowViewState.IdRef="Question2_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System.Net.Mail" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -92,7 +92,7 @@
       <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Build a workflow that extracts attachments from emails containing the word “Resume” in its subject.&#xA;• Set up IMAP configuration to access the email.&#xA;• Loop through each email to identify subjects containing the word “Resume”.&#xA;• Download the attachments from the identified emails in a folder.&#xA;Prerequisites&#xA; Send 4-5 dummy emails to the email ID that you will use for practice. Emails must contain file attachments and the word “Resume” in their subject.&#xA;" DisplayName="Question2" sap:VirtualizedContainerService.HintSize="512,883.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Build a workflow that extracts attachments from emails containing the word “Resume” in its subject.&#xA;• Set up IMAP configuration to access the email.&#xA;• Loop through each email to identify subjects containing the word “Resume”.&#xA;• Download the attachments from the identified emails in a folder.&#xA;Prerequisites&#xA; Send 4-5 dummy emails to the email ID that you will use for practice. Emails must contain file attachments and the word “Resume” in their subject.&#xA;" DisplayName="Question2" sap:VirtualizedContainerService.HintSize="512,1204" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:List(snm:MailMessage)" Name="ResumeMail" />
       <Variable x:TypeArguments="x:Int32" Name="index">
@@ -110,21 +110,22 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:GetIMAPMailMessages ClientName="{x:Null}" ClientVersion="{x:Null}" SecurePassword="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" DeleteMessages="False" DisplayName="Get IMAP Mail Messages : To access the gmail" Email="rencita1903@gmail.com" EnableSSL="True" FilterExpression="SUBJECT Resume" FilterExpressionCharacterSet="US-ASCII" sap:VirtualizedContainerService.HintSize="450,57.333333333333336" sap2010:WorkflowViewState.IdRef="GetIMAPMailMessages_1" IgnoreCRL="False" MailFolder="Inbox" MarkAsRead="False" Messages="[ResumeMail]" OnlyUnreadMessages="True" OrderByDate="NewestFirst" Password="mjdv iwve erzm hukc" Port="993" SecureConnection="Auto" Server="imap.gmail.com" Top="30" />
-    <ui:ForEach x:TypeArguments="snm:MailMessage" sap2010:Annotation.AnnotationText="Looping through each email to identify subjects containing the word “Resume”and downloading the attachments from the identified emails in a folder." CurrentIndex="[index]" DisplayName="For Each Mail : In inbox " sap:VirtualizedContainerService.HintSize="450,576" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[ResumeMail]">
+    <ui:LogMessage DisplayName="Log Message : Process email extraction started" sap:VirtualizedContainerService.HintSize="450,173" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Process email extraction started&quot;]" />
+    <ui:GetIMAPMailMessages ClientName="{x:Null}" ClientVersion="{x:Null}" SecurePassword="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" DeleteMessages="False" DisplayName="Get IMAP Mail Messages : To access the gmail" Email="rencita1903@gmail.com" EnableSSL="True" FilterExpression="SUBJECT Resume" FilterExpressionCharacterSet="US-ASCII" sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="GetIMAPMailMessages_1" IgnoreCRL="False" MailFolder="Inbox" MarkAsRead="False" Messages="[ResumeMail]" OnlyUnreadMessages="True" OrderByDate="NewestFirst" Password="mjdv iwve erzm hukc" Port="993" SecureConnection="Auto" Server="imap.gmail.com" Top="30" />
+    <ui:ForEach x:TypeArguments="snm:MailMessage" sap2010:Annotation.AnnotationText="Looping through each email to identify subjects containing the word “Resume”and downloading the attachments from the identified emails in a folder." CurrentIndex="[index]" DisplayName="For Each Mail : In inbox " sap:VirtualizedContainerService.HintSize="450,575" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[ResumeMail]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="snm:MailMessage">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="snm:MailMessage" Name="Mail" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body : If the subject is &quot;Resume&quot;" sap:VirtualizedContainerService.HintSize="416,375.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Body : If the subject is &quot;Resume&quot;" sap:VirtualizedContainerService.HintSize="416,372" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:LogMessage DisplayName="Log Message : Checking for the subjects" sap:VirtualizedContainerService.HintSize="354,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[Mail.Subject]" />
-            <ui:SaveMailAttachments Attachments="{x:Null}" DisplayName="Save Attachments : To specific folder" ExcludeInlineAttachments="False" FolderPath="Data\Output\Question2" sap:VirtualizedContainerService.HintSize="354,110.66666666666667" sap2010:WorkflowViewState.IdRef="SaveMailAttachments_2" Message="[Mail]" OverwriteExisting="False" />
+            <ui:LogMessage DisplayName="Log Message : Checking for the subjects" sap:VirtualizedContainerService.HintSize="354,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[Mail.Subject]" />
+            <ui:SaveMailAttachments Attachments="{x:Null}" DisplayName="Save Attachments : To specific folder" ExcludeInlineAttachments="False" FolderPath="Data\Output\Question2" sap:VirtualizedContainerService.HintSize="354,111" sap2010:WorkflowViewState.IdRef="SaveMailAttachments_2" Message="[Mail]" OverwriteExisting="False" />
           </Sequence>
         </ActivityAction>
       </ui:ForEach.Body>
@@ -134,5 +135,6 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEach>
+    <ui:LogMessage DisplayName="Log Message : Process email extraction completed" sap:VirtualizedContainerService.HintSize="450,164" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Process email extraction completed&quot;]" />
   </Sequence>
 </Activity>
